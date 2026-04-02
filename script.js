@@ -378,3 +378,28 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
 
   window.open(whatsappUrl, "_blank");
 });
+
+
+// --- 10. GSAP Animation for Founders Section ---
+        gsap.from(".founders-header", {
+            scrollTrigger: {
+                trigger: "#founders",
+                start: "top 80%",
+            },
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out"
+        });
+
+        gsap.from(".founder-card", {
+            scrollTrigger: {
+                trigger: "#founders",
+                start: "top 70%",
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.3, // Founder 1 aayega, thodi der baad Founder 2 aayega
+            ease: "back.out(1.2)"
+        });
