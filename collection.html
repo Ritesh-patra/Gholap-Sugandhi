@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanskriti | Premium Divine Samagri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        saffron: '#FF7A00',
+                        maroon: '#8B0000',
+                        gold: '#D4AF37',
+                        cream: '#FFF8E7',
+                        'cream-dark': '#F5E6CC',
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Jost', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Jost', sans-serif; scroll-behavior: smooth; }
+        h1, h2, h3, .font-cinzel { font-family: 'Cinzel', serif; }
+        .glass-effect { background: rgba(255, 248, 231, 0.8); backdrop-filter: blur(10px); }
+        .product-card:hover .product-action { opacity: 1; transform: translateY(0); }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
+        .bg-pattern { background-image: url('https://www.transparenttextures.com/patterns/mandala.png'); }
+    </style>
+</head>
+<body class="bg-cream text-maroon overflow-x-hidden custom-scrollbar">
+
+    <div class="bg-maroon text-gold text-xs py-2 px-4 text-center tracking-widest uppercase">
+        Free Spiritual Consultation on Orders Above ₹2000 | Shipping Nationwide
+    </div>
+
+    <nav class="sticky top-0 z-50 glass-effect border-b border-gold/30 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <i data-lucide="om" class="text-saffron h-8 w-8"></i>
+            <span class="text-2xl font-bold tracking-tighter text-maroon font-cinzel">SANSKRITI</span>
+        </div>
+        
+        <div class="hidden md:flex space-x-8 font-medium uppercase text-sm tracking-widest">
+            <a href="#" class="hover:text-saffron transition-colors">Home</a>
+            <a href="#shop" class="hover:text-saffron transition-colors">Collections</a>
+            <a href="#" class="hover:text-saffron transition-colors">Pooja Kits</a>
+            <a href="#" class="hover:text-saffron transition-colors">Our Story</a>
+        </div>
+
+        <div class="flex items-center space-x-5">
+            <button class="hover:text-saffron transition-colors"><i data-lucide="search"></i></button>
+            <div class="relative cursor-pointer" onclick="toggleCart()">
+                <i data-lucide="shopping-bag" class="hover:text-saffron transition-colors"></i>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-saffron text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center font-bold">0</span>
+            </div>
+            <button class="md:hidden"><i data-lucide="menu"></i></button>
+        </div>
+    </nav>
+
+    <section class="relative h-[80vh] flex items-center justify-center text-center px-4 overflow-hidden bg-pattern">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-cream/90"></div>
+        <div class="relative z-10 animate-fade-in">
+            <span class="text-saffron font-semibold tracking-[0.3em] uppercase block mb-4">Divine & Authentic</span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-maroon leading-tight">Elevate Your <br><span class="text-gold">Spiritual Journey</span></h1>
+            <p class="max-w-2xl mx-auto text-lg mb-8 text-maroon/80">Premium handcrafted incense, pure ashtgandh, and divine idols curated for your daily rituals.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#shop" class="bg-maroon text-gold px-10 py-4 rounded-full font-bold uppercase text-sm tracking-widest hover:bg-saffron hover:text-white transition-all duration-300 shadow-xl">Shop Collection</a>
+                <a href="#" class="border border-maroon px-10 py-4 rounded-full font-bold uppercase text-sm tracking-widest hover:bg-maroon hover:text-gold transition-all duration-300">View Pooja Kits</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-cream-dark">
+        <div class="container mx-auto px-4 overflow-x-auto">
+            <div class="flex justify-between min-w-[800px] gap-4">
+                <button onclick="filterCategory('all')" class="category-btn active bg-gold text-white px-6 py-2 rounded-full text-sm font-semibold uppercase">All Divine</button>
+                <button onclick="filterCategory('incense')" class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Incense</button>
+                <button onclick="filterCategory('dhoop')" class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Dhoop</button>
+                <button onclick="filterCategory('ashtgandh')" class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Ashtgandh</button>
+                <button onclick="filterCategory('decor')" class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Idols & Decor</button>
+                <button onclick="filterCategory('kits')" class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Pooja Kits</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="py-20 px-6 container mx-auto">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-4xl font-bold mb-2">Featured Collection</h2>
+                <div class="h-1 w-20 bg-saffron"></div>
+            </div>
+            <p class="text-sm italic text-maroon/60 hidden md:block uppercase tracking-widest">Showing <span id="product-count">12</span> items</p>
+        </div>
+
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            </div>
+    </section>
+
+    <div id="cart-sidebar" class="fixed inset-y-0 right-0 w-full md:w-[400px] bg-white z-[60] shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col">
+        <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-maroon text-gold">
+            <h3 class="text-xl font-bold font-cinzel">Your Sacred Bag</h3>
+            <button onclick="toggleCart()"><i data-lucide="x"></i></button>
+        </div>
+        <div id="cart-items" class="flex-grow overflow-y-auto p-6 space-y-4 custom-scrollbar">
+            <div class="text-center py-20 text-gray-400">
+                <i data-lucide="shopping-cart" class="mx-auto h-12 w-12 mb-4 opacity-20"></i>
+                <p>Your bag is empty. Start adding some blessings!</p>
+            </div>
+        </div>
+        <div class="p-6 border-t border-gray-100 bg-cream">
+            <div class="flex justify-between mb-4 font-bold text-xl">
+                <span>Total:</span>
+                <span id="cart-total">₹0.00</span>
+            </div>
+            <button class="w-full bg-saffron text-white py-4 rounded font-bold uppercase tracking-widest hover:bg-maroon transition-colors shadow-lg">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <section class="bg-maroon text-gold py-20 mt-20 relative overflow-hidden">
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
+            <div class="space-y-4">
+                <i data-lucide="flower-2" class="h-12 w-12 mx-auto text-saffron"></i>
+                <h4 class="text-xl font-bold font-cinzel">100% Pure</h4>
+                <p class="text-cream/70">Authentic ingredients sourced directly from sacred forests and mountains.</p>
+            </div>
+            <div class="space-y-4">
+                <i data-lucide="truck" class="h-12 w-12 mx-auto text-saffron"></i>
+                <h4 class="text-xl font-bold font-cinzel">Secure Delivery</h4>
+                <p class="text-cream/70">Specially packaged to ensure fragile idols reach you with divine grace.</p>
+            </div>
+            <div class="space-y-4">
+                <i data-lucide="heart-handshake" class="h-12 w-12 mx-auto text-saffron"></i>
+                <h4 class="text-xl font-bold font-cinzel">Handcrafted</h4>
+                <p class="text-cream/70">Each item is handcrafted by traditional artisans across India.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-cream-dark pt-20 pb-10 border-t border-gold/20">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center gap-2 mb-6">
+                    <i data-lucide="om" class="text-saffron h-6 w-6"></i>
+                    <span class="text-xl font-bold tracking-tighter text-maroon font-cinzel">SANSKRITI</span>
+                </div>
+                <p class="text-sm text-maroon/70 leading-relaxed">Dedicated to preserving our ancient traditions by providing the highest quality spiritual essentials for your home.</p>
+            </div>
+            <div>
+                <h5 class="font-bold uppercase text-xs tracking-widest mb-6">Explore</h5>
+                <ul class="space-y-4 text-sm text-maroon/70">
+                    <li><a href="#" class="hover:text-saffron">All Products</a></li>
+                    <li><a href="#" class="hover:text-saffron">Bestsellers</a></li>
+                    <li><a href="#" class="hover:text-saffron">Custom Pooja Kits</a></li>
+                    <li><a href="#" class="hover:text-saffron">Wholesale</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold uppercase text-xs tracking-widest mb-6">Support</h5>
+                <ul class="space-y-4 text-sm text-maroon/70">
+                    <li><a href="#" class="hover:text-saffron">Shipping Policy</a></li>
+                    <li><a href="#" class="hover:text-saffron">Refunds & Returns</a></li>
+                    <li><a href="#" class="hover:text-saffron">Track Order</a></li>
+                    <li><a href="#" class="hover:text-saffron">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold uppercase text-xs tracking-widest mb-6">Newsletter</h5>
+                <p class="text-sm text-maroon/70 mb-4">Join our community for spiritual tips and exclusive offers.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Email Address" class="bg-white border border-gold/30 p-2 text-sm w-full outline-none focus:border-saffron">
+                    <button class="bg-maroon text-gold px-4 py-2 hover:bg-saffron hover:text-white transition-all"><i data-lucide="send" class="h-4 w-4"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gold/10 pt-8 text-center text-xs text-maroon/50 uppercase tracking-widest">
+            © 2026 Sanskriti Divine Rituals. Designed for the Pure Soul.
+        </div>
+    </footer>
+
+    <script>
+        // Lucide Icons Initialization
+        lucide.createIcons();
+
+        // Product Database
+        const products = [
+            { id: 1, name: "Premium Masala Incense", category: "incense", price: 250, sub: "Hand-rolled", img: "https://images.unsplash.com/photo-1602928294704-454b406a1b80?auto=format&fit=crop&q=80&w=400" },
+            { id: 2, name: "Pure Sandalwood Dhoop", category: "dhoop", price: 350, sub: "Natural Aroma", img: "https://images.unsplash.com/photo-1612487437207-cf6e643f65da?auto=format&fit=crop&q=80&w=400" },
+            { id: 3, name: "Keshar Ashtgandh", category: "ashtgandh", price: 180, sub: "Pure Saffron", img: "https://images.unsplash.com/photo-1590419690008-905895e8fe0d?auto=format&fit=crop&q=80&w=400" },
+            { id: 4, name: "Brass Ganesha Idol", category: "decor", price: 2400, sub: "Antique Finish", img: "https://images.unsplash.com/photo-1567591974574-e85263d44271?auto=format&fit=crop&q=80&w=400" },
+            { id: 5, name: "Satyanarayan Kit", category: "kits", price: 1200, sub: "Complete Set", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=400" },
+            { id: 6, name: "Dhoop Cup (Pack of 12)", category: "dhoop", price: 150, sub: "Sambrani", img: "https://images.unsplash.com/photo-1621460245089-913a0166299b?auto=format&fit=crop&q=80&w=400" },
+            { id: 7, name: "Mercury Laxmi Idol", category: "decor", price: 3200, sub: "Energized", img: "https://images.unsplash.com/photo-1582531649622-92f70351111a?auto=format&fit=crop&q=80&w=400" },
+            { id: 8, name: "Scented Rose Incense", category: "incense", price: 120, sub: "Mild Fragrance", img: "https://images.unsplash.com/photo-1602928294697-39b039434863?auto=format&fit=crop&q=80&w=400" },
+        ];
+
+        let cart = [];
+
+        // Load Products
+        function displayProducts(items) {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = items.map(product => `
+                <div class="product-card group relative bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 animate-slide-up">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="${product.img}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="product-action absolute inset-0 bg-maroon/20 flex items-center justify-center opacity-0 transform translate-y-4 transition-all duration-300">
+                            <button onclick="addToCart(${product.id})" class="bg-white text-maroon p-4 rounded-full shadow-xl hover:bg-saffron hover:text-white transition-colors">
+                                <i data-lucide="plus"></i>
+                            </button>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-saffron text-white text-[10px] px-3 py-1 rounded-full uppercase font-bold tracking-widest">
+                            New Arrival
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-[10px] text-gold font-bold uppercase tracking-[0.2em] mb-1">${product.sub}</p>
+                        <h3 class="text-lg font-bold text-maroon mb-2">${product.name}</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold">₹${product.price}</span>
+                            <div class="flex text-gold">
+                                <i data-lucide="star" class="h-3 w-3 fill-current"></i>
+                                <i data-lucide="star" class="h-3 w-3 fill-current"></i>
+                                <i data-lucide="star" class="h-3 w-3 fill-current"></i>
+                                <i data-lucide="star" class="h-3 w-3 fill-current"></i>
+                                <i data-lucide="star" class="h-3 w-3 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+            document.getElementById('product-count').innerText = items.length;
+        }
+
+        // Filter Logic
+        function filterCategory(cat) {
+            // Update buttons
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('bg-gold', 'text-white');
+                btn.classList.add('border', 'border-gold');
+            });
+            event.target.classList.add('bg-gold', 'text-white');
+            
+            const filtered = cat === 'all' ? products : products.filter(p => p.category === cat);
+            displayProducts(filtered);
+        }
+
+        // Cart Logic
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            sidebar.classList.toggle('translate-x-full');
+        }
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            cart.push(product);
+            updateCart();
+            
+            // Small notification effect
+            const btn = event.currentTarget;
+            btn.innerHTML = '<i data-lucide="check"></i>';
+            lucide.createIcons();
+            setTimeout(() => {
+                btn.innerHTML = '<i data-lucide="plus"></i>';
+                lucide.createIcons();
+            }, 1000);
+        }
+
+        function updateCart() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const cartItems = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+            
+            if(cart.length === 0) {
+                cartItems.innerHTML = `<div class="text-center py-20 text-gray-400"><i data-lucide="shopping-cart" class="mx-auto h-12 w-12 mb-4 opacity-20"></i><p>Your bag is empty.</p></div>`;
+                totalEl.innerText = "₹0.00";
+                lucide.createIcons();
+                return;
+            }
+
+            let total = 0;
+            cartItems.innerHTML = cart.map((item, index) => {
+                total += item.price;
+                return `
+                    <div class="flex gap-4 border-b border-gray-50 pb-4 animate-fade-in">
+                        <img src="${item.img}" class="w-20 h-20 object-cover rounded">
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-sm text-maroon">${item.name}</h4>
+                            <p class="text-gold font-bold">₹${item.price}</p>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-gray-300 hover:text-red-500"><i data-lucide="trash-2" class="h-4 w-4"></i></button>
+                    </div>
+                `;
+            }).join('');
+            totalEl.innerText = `₹${total.toFixed(2)}`;
+            lucide.createIcons();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        // Initialize
+        displayProducts(products);
+
+    </script>
+</body>
+</html>
