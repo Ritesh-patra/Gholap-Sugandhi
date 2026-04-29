@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sanskriti | Premium Divine Samagri</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -36,15 +39,43 @@
         }
     </script>
     <style>
-        body { font-family: 'Jost', sans-serif; scroll-behavior: smooth; }
-        h1, h2, h3, .font-cinzel { font-family: 'Cinzel', serif; }
-        .glass-effect { background: rgba(255, 248, 231, 0.8); backdrop-filter: blur(10px); }
-        .product-card:hover .product-action { opacity: 1; transform: translateY(0); }
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
-        .bg-pattern { background-image: url('https://www.transparenttextures.com/patterns/mandala.png'); }
+        body {
+            font-family: 'Jost', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        .glass-effect {
+            background: rgba(255, 248, 231, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .product-card:hover .product-action {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 10px;
+        }
+
+        .bg-pattern {
+            background-image: url('https://www.transparenttextures.com/patterns/mandala.png');
+        }
     </style>
 </head>
+
 <body class="bg-cream text-maroon overflow-x-hidden custom-scrollbar">
 
     <div class="bg-maroon text-gold text-xs py-2 px-4 text-center tracking-widest uppercase">
@@ -56,7 +87,7 @@
             <i data-lucide="om" class="text-saffron h-8 w-8"></i>
             <span class="text-2xl font-bold tracking-tighter text-maroon font-cinzel">SANSKRITI</span>
         </div>
-        
+
         <div class="hidden md:flex space-x-8 font-medium uppercase text-sm tracking-widest">
             <a href="#" class="hover:text-saffron transition-colors">Home</a>
             <a href="#shop" class="hover:text-saffron transition-colors">Collections</a>
@@ -68,7 +99,8 @@
             <button class="hover:text-saffron transition-colors"><i data-lucide="search"></i></button>
             <div class="relative cursor-pointer" onclick="toggleCart()">
                 <i data-lucide="shopping-bag" class="hover:text-saffron transition-colors"></i>
-                <span id="cart-count" class="absolute -top-2 -right-2 bg-saffron text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center font-bold">0</span>
+                <span id="cart-count"
+                    class="absolute -top-2 -right-2 bg-saffron text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center font-bold">0</span>
             </div>
             <button class="md:hidden"><i data-lucide="menu"></i></button>
         </div>
@@ -78,11 +110,17 @@
         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-cream/90"></div>
         <div class="relative z-10 animate-fade-in">
             <span class="text-saffron font-semibold tracking-[0.3em] uppercase block mb-4">Divine & Authentic</span>
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-maroon leading-tight">Elevate Your <br><span class="text-gold">Spiritual Journey</span></h1>
-            <p class="max-w-2xl mx-auto text-lg mb-8 text-maroon/80">Premium handcrafted incense, pure ashtgandh, and divine idols curated for your daily rituals.</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-maroon leading-tight">Elevate Your <br><span
+                    class="text-gold">Spiritual Journey</span></h1>
+            <p class="max-w-2xl mx-auto text-lg mb-8 text-maroon/80">Premium handcrafted incense, pure ashtgandh, and
+                divine idols curated for your daily rituals.</p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#shop" class="bg-maroon text-gold px-10 py-4 rounded-full font-bold uppercase text-sm tracking-widest hover:bg-saffron hover:text-white transition-all duration-300 shadow-xl">Shop Collection</a>
-                <a href="#" class="border border-maroon px-10 py-4 rounded-full font-bold uppercase text-sm tracking-widest hover:bg-maroon hover:text-gold transition-all duration-300">View Pooja Kits</a>
+                <a href="#shop"
+                    class="bg-maroon text-gold px-10 py-4 rounded-full font-bold uppercase text-sm tracking-widest hover:bg-saffron hover:text-white transition-all duration-300 shadow-xl">Shop
+                    Collection</a>
+                <a href="#"
+                    class="border border-maroon px-10 py-4 rounded-full font-bold uppercase text-sm tracking-widest hover:bg-maroon hover:text-gold transition-all duration-300">View
+                    Pooja Kits</a>
             </div>
         </div>
     </section>
@@ -90,12 +128,21 @@
     <section class="py-12 bg-cream-dark">
         <div class="container mx-auto px-4 overflow-x-auto">
             <div class="flex justify-between min-w-[800px] gap-4">
-                <button onclick="filterCategory('all')" class="category-btn active bg-gold text-white px-6 py-2 rounded-full text-sm font-semibold uppercase">All Divine</button>
-                <button onclick="filterCategory('incense')" class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Incense</button>
-                <button onclick="filterCategory('dhoop')" class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Dhoop</button>
-                <button onclick="filterCategory('ashtgandh')" class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Ashtgandh</button>
-                <button onclick="filterCategory('decor')" class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Idols & Decor</button>
-                <button onclick="filterCategory('kits')" class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Pooja Kits</button>
+                <button onclick="filterCategory('all')"
+                    class="category-btn active bg-gold text-white px-6 py-2 rounded-full text-sm font-semibold uppercase">All
+                    Divine</button>
+                <button onclick="filterCategory('incense')"
+                    class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Incense</button>
+                <button onclick="filterCategory('dhoop')"
+                    class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Dhoop</button>
+                <button onclick="filterCategory('ashtgandh')"
+                    class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Ashtgandh</button>
+                <button onclick="filterCategory('decor')"
+                    class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Idols
+                    & Decor</button>
+                <button onclick="filterCategory('kits')"
+                    class="category-btn border border-gold px-6 py-2 rounded-full text-sm font-semibold uppercase hover:bg-gold hover:text-white transition-all">Pooja
+                    Kits</button>
             </div>
         </div>
     </section>
@@ -106,14 +153,16 @@
                 <h2 class="text-4xl font-bold mb-2">Featured Collection</h2>
                 <div class="h-1 w-20 bg-saffron"></div>
             </div>
-            <p class="text-sm italic text-maroon/60 hidden md:block uppercase tracking-widest">Showing <span id="product-count">12</span> items</p>
+            <p class="text-sm italic text-maroon/60 hidden md:block uppercase tracking-widest">Showing <span
+                    id="product-count">12</span> items</p>
         </div>
 
         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            </div>
+        </div>
     </section>
 
-    <div id="cart-sidebar" class="fixed inset-y-0 right-0 w-full md:w-[400px] bg-white z-[60] shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col">
+    <div id="cart-sidebar"
+        class="fixed inset-y-0 right-0 w-full md:w-[400px] bg-white z-[60] shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col">
         <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-maroon text-gold">
             <h3 class="text-xl font-bold font-cinzel">Your Sacred Bag</h3>
             <button onclick="toggleCart()"><i data-lucide="x"></i></button>
@@ -129,7 +178,9 @@
                 <span>Total:</span>
                 <span id="cart-total">₹0.00</span>
             </div>
-            <button class="w-full bg-saffron text-white py-4 rounded font-bold uppercase tracking-widest hover:bg-maroon transition-colors shadow-lg">Proceed to Checkout</button>
+            <button
+                class="w-full bg-saffron text-white py-4 rounded font-bold uppercase tracking-widest hover:bg-maroon transition-colors shadow-lg">Proceed
+                to Checkout</button>
         </div>
     </div>
 
@@ -160,7 +211,8 @@
                     <i data-lucide="om" class="text-saffron h-6 w-6"></i>
                     <span class="text-xl font-bold tracking-tighter text-maroon font-cinzel">SANSKRITI</span>
                 </div>
-                <p class="text-sm text-maroon/70 leading-relaxed">Dedicated to preserving our ancient traditions by providing the highest quality spiritual essentials for your home.</p>
+                <p class="text-sm text-maroon/70 leading-relaxed">Dedicated to preserving our ancient traditions by
+                    providing the highest quality spiritual essentials for your home.</p>
             </div>
             <div>
                 <h5 class="font-bold uppercase text-xs tracking-widest mb-6">Explore</h5>
@@ -184,8 +236,10 @@
                 <h5 class="font-bold uppercase text-xs tracking-widest mb-6">Newsletter</h5>
                 <p class="text-sm text-maroon/70 mb-4">Join our community for spiritual tips and exclusive offers.</p>
                 <div class="flex">
-                    <input type="email" placeholder="Email Address" class="bg-white border border-gold/30 p-2 text-sm w-full outline-none focus:border-saffron">
-                    <button class="bg-maroon text-gold px-4 py-2 hover:bg-saffron hover:text-white transition-all"><i data-lucide="send" class="h-4 w-4"></i></button>
+                    <input type="email" placeholder="Email Address"
+                        class="bg-white border border-gold/30 p-2 text-sm w-full outline-none focus:border-saffron">
+                    <button class="bg-maroon text-gold px-4 py-2 hover:bg-saffron hover:text-white transition-all"><i
+                            data-lucide="send" class="h-4 w-4"></i></button>
                 </div>
             </div>
         </div>
@@ -200,14 +254,70 @@
 
         // Product Database
         const products = [
-            { id: 1, name: "Premium Masala Incense", category: "incense", price: 250, sub: "Hand-rolled", img: "https://images.unsplash.com/photo-1602928294704-454b406a1b80?auto=format&fit=crop&q=80&w=400" },
-            { id: 2, name: "Pure Sandalwood Dhoop", category: "dhoop", price: 350, sub: "Natural Aroma", img: "https://images.unsplash.com/photo-1612487437207-cf6e643f65da?auto=format&fit=crop&q=80&w=400" },
-            { id: 3, name: "Keshar Ashtgandh", category: "ashtgandh", price: 180, sub: "Pure Saffron", img: "https://images.unsplash.com/photo-1590419690008-905895e8fe0d?auto=format&fit=crop&q=80&w=400" },
-            { id: 4, name: "Brass Ganesha Idol", category: "decor", price: 2400, sub: "Antique Finish", img: "https://images.unsplash.com/photo-1567591974574-e85263d44271?auto=format&fit=crop&q=80&w=400" },
-            { id: 5, name: "Satyanarayan Kit", category: "kits", price: 1200, sub: "Complete Set", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=400" },
-            { id: 6, name: "Dhoop Cup (Pack of 12)", category: "dhoop", price: 150, sub: "Sambrani", img: "https://images.unsplash.com/photo-1621460245089-913a0166299b?auto=format&fit=crop&q=80&w=400" },
-            { id: 7, name: "Mercury Laxmi Idol", category: "decor", price: 3200, sub: "Energized", img: "https://images.unsplash.com/photo-1582531649622-92f70351111a?auto=format&fit=crop&q=80&w=400" },
-            { id: 8, name: "Scented Rose Incense", category: "incense", price: 120, sub: "Mild Fragrance", img: "https://images.unsplash.com/photo-1602928294697-39b039434863?auto=format&fit=crop&q=80&w=400" },
+            {
+                id: 1,
+                name: "Luxury Ritual Incense Box",
+                category: "incense",
+                price: 299,
+                sub: "Premium Temple Fragrance",
+                img: "images/col1.jpeg"
+            },
+            {
+                id: 2,
+                name: "Ratan Dhoop Pack",
+                category: "dhoop",
+                price: 199,
+                sub: "Traditional Aroma",
+                img: "images/col2.jpeg"
+            },
+            {
+                id: 3,
+                name: "Sugandhit Agarbatti",
+                category: "incense",
+                price: 149,
+                sub: "Floral Fragrance",
+                img: "images/col3.jpeg"
+            },
+            {
+                id: 4,
+                name: "Divine Puja Kit",
+                category: "kits",
+                price: 499,
+                sub: "Complete Ritual Pack",
+                img: "images/col4.jpeg"
+            },
+            {
+                id: 5,
+                name: "Chandan Agarbatti",
+                category: "incense",
+                price: 129,
+                sub: "Sandalwood Essence",
+                img: "images/col5.jpeg"
+            },
+            {
+                id: 6,
+                name: "Herbal Dhoop Stick",
+                category: "dhoop",
+                price: 179,
+                sub: "Natural Ingredients",
+                img: "images/col6.jpeg"
+            },
+            {
+                id: 7,
+                name: "Premium Gold Incense",
+                category: "incense",
+                price: 349,
+                sub: "Long Lasting Aroma",
+                img: "images/col7.jpeg"
+            },
+            {
+                id: 8,
+                name: "Himalayan Ritual Incense",
+                category: "incense",
+                price: 399,
+                sub: "Spiritual Collection",
+                img: "images/col8.jpeg"
+            }
         ];
 
         let cart = [];
@@ -256,7 +366,7 @@
                 btn.classList.add('border', 'border-gold');
             });
             event.target.classList.add('bg-gold', 'text-white');
-            
+
             const filtered = cat === 'all' ? products : products.filter(p => p.category === cat);
             displayProducts(filtered);
         }
@@ -271,7 +381,7 @@
             const product = products.find(p => p.id === id);
             cart.push(product);
             updateCart();
-            
+
             // Small notification effect
             const btn = event.currentTarget;
             btn.innerHTML = '<i data-lucide="check"></i>';
@@ -286,8 +396,8 @@
             document.getElementById('cart-count').innerText = cart.length;
             const cartItems = document.getElementById('cart-items');
             const totalEl = document.getElementById('cart-total');
-            
-            if(cart.length === 0) {
+
+            if (cart.length === 0) {
                 cartItems.innerHTML = `<div class="text-center py-20 text-gray-400"><i data-lucide="shopping-cart" class="mx-auto h-12 w-12 mb-4 opacity-20"></i><p>Your bag is empty.</p></div>`;
                 totalEl.innerText = "₹0.00";
                 lucide.createIcons();
@@ -322,4 +432,5 @@
 
     </script>
 </body>
+
 </html>
