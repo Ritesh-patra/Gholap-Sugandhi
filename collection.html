@@ -82,27 +82,58 @@
         Free Spiritual Consultation on Orders Above ₹2000 | Shipping Nationwide
     </div>
 
-    <nav class="sticky top-0 z-50 glass-effect border-b border-gold/30 px-6 py-4 flex justify-between items-center">
-        <div class="flex items-center gap-2">
-            <i data-lucide="om" class="text-saffron h-8 w-8"></i>
-            <span class="text-2xl font-bold tracking-tighter text-maroon font-cinzel">SANSKRITI</span>
+    <!-- Mobile menu (off-canvas) -->
+    <div id="mobile-menu"
+        class="fixed inset-y-0 left-0 w-80 max-w-full bg-[#FFFDD0]/80 backdrop-blur-lg border-r border-[#8B0000]/20 shadow-2xl z-[9999] transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+
+        <div class="p-6 border-b border-[#8B0000]/20 flex justify-between items-center">
+            <h3 class="text-xl font-bold font-cinzel text-[#8B0000]">Menu</h3>
+            <button onclick="toggleMobileMenu()" class="text-[#8B0000] hover:opacity-70 transition-opacity">
+                <i data-lucide="x"></i>
+            </button>
         </div>
 
+        <nav class="p-6 space-y-4">
+            <a href="/" onclick="toggleMobileMenu()"
+                class="block text-[#8B0000] hover:text-[#D4AF37] font-semibold uppercase transition-colors">Home</a>
+            <a href="#shop" onclick="toggleMobileMenu()"
+                class="block text-[#8B0000] hover:text-[#D4AF37] font-semibold uppercase transition-colors">Collections</a>
+
+            <a href="index.html/#about" onclick="toggleMobileMenu()"
+                class="block text-[#8B0000] hover:text-[#D4AF37] font-semibold uppercase transition-colors">Our
+                Story</a>
+        </nav>
+    </div>
+
+    <nav class="sticky top-0 z-50 glass-effect border-b border-gold/30 px-6 py-4 flex justify-between items-center">
+          <div class="flex-shrink-0 flex items-center justify-center w-auto lg:w-1/3 logo-container relative">
+                    <a href="#" class="flex items-center justify-center">
+                        <img src="images/Gholap New Logo.png" alt="EcoSpark Logo" class="h-16 lg:h-16 object-contain scale-[1.3] mb-3">
+                    </a>
+                </div>
+
         <div class="hidden md:flex space-x-8 font-medium uppercase text-sm tracking-widest">
-            <a href="#" class="hover:text-saffron transition-colors">Home</a>
+            <a href="/" class="hover:text-saffron transition-colors">Home</a>
             <a href="#shop" class="hover:text-saffron transition-colors">Collections</a>
-            <a href="#" class="hover:text-saffron transition-colors">Pooja Kits</a>
-            <a href="#" class="hover:text-saffron transition-colors">Our Story</a>
+            <a href="#shop" class="hover:text-saffron transition-colors">Pooja Kits</a>
+            <a href="index.html/#about" class="hover:text-saffron transition-colors">Our Story</a>
         </div>
 
         <div class="flex items-center space-x-5">
-            <button class="hover:text-saffron transition-colors"><i data-lucide="search"></i></button>
+            <div class="relative">
+                <button id="search-toggle" onclick="toggleSearch()" class="hover:text-saffron transition-colors"><i
+                        data-lucide="search"></i></button>
+                <input id="nav-search" type="search" placeholder="Search products..." oninput="handleSearchInput(event)"
+                    onkeydown="searchKeyDown(event)"
+                    class="hidden md:block absolute right-0 top-10 w-64 p-2 border rounded bg-white text-sm outline-none" />
+            </div>
             <div class="relative cursor-pointer" onclick="toggleCart()">
                 <i data-lucide="shopping-bag" class="hover:text-saffron transition-colors"></i>
                 <span id="cart-count"
                     class="absolute -top-2 -right-2 bg-saffron text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center font-bold">0</span>
             </div>
-            <button class="md:hidden"><i data-lucide="menu"></i></button>
+            <button id="mobile-menu-btn" class="md:hidden" onclick="toggleMobileMenu()"><i
+                    data-lucide="menu"></i></button>
         </div>
     </nav>
 
@@ -254,6 +285,7 @@
 
         // Product Database
         const products = [
+            // FIRST 8 (already the same)
             {
                 id: 1,
                 name: "Luxury Ritual Incense Box",
@@ -317,9 +349,116 @@
                 price: 399,
                 sub: "Spiritual Collection",
                 img: "images/col8.jpeg"
+            },
+
+            // NEW 13 PRODUCTS
+            {
+                id: 9,
+                name: "Madhulika Incense",
+                category: "incense",
+                price: 159,
+                sub: "Sweet Fragrance",
+                img: "collection/col9.jpg"
+            },
+            {
+                id: 10,
+                name: "Pine Wood Incense",
+                category: "incense",
+                price: 189,
+                sub: "Woody Aroma",
+                img: "collection/col10.jpg"
+            },
+            {
+                id: 11,
+                name: "Kalash Kasturi Incense",
+                category: "incense",
+                price: 249,
+                sub: "Rich Musk Fragrance",
+                img: "collection/col11.jpg"
+            },
+            {
+                id: 12,
+                name: "Chandan Premium Stick",
+                category: "incense",
+                price: 199,
+                sub: "Classic Sandal Aroma",
+                img: "collection/col12.jpg"
+            },
+            {
+                id: 13,
+                name: "Royal Incense Pack",
+                category: "incense",
+                price: 299,
+                sub: "Luxury Collection",
+                img: "collection/col13.jpg"
+            },
+
+            // extra variations (same collection reuse optional if needed)
+            {
+                id: 14,
+                name: "Temple Special Incense",
+                category: "incense",
+                price: 219,
+                sub: "Daily Puja Use",
+                img: "collection/col1.jpg"
+            },
+            {
+                id: 15,
+                name: "Loban Premium Box",
+                category: "dhoop",
+                price: 229,
+                sub: "Strong Aroma",
+                img: "collection/col2.jpg"
+            },
+            {
+                id: 16,
+                name: "Herbal Chandan Pack",
+                category: "pooja",
+                price: 139,
+                sub: "Natural Chandan",
+                img: "collection/col3.jpg"
+            },
+            {
+                id: 17,
+                name: "Complete Puja Combo",
+                category: "kits",
+                price: 599,
+                sub: "Festival Pack",
+                img: "collection/col4.jpg"
+            },
+            {
+                id: 18,
+                name: "Pure Chandan Paste",
+                category: "pooja",
+                price: 149,
+                sub: "Original Sandalwood",
+                img: "collection/col5.jpg"
+            },
+            {
+                id: 19,
+                name: "Spiritual Dhoop Sticks",
+                category: "dhoop",
+                price: 199,
+                sub: "Holy Fragrance",
+                img: "collection/col6.jpg"
+            },
+            {
+                id: 20,
+                name: "Golden Premium Agarbatti",
+                category: "incense",
+                price: 329,
+                sub: "Long Burning",
+                img: "collection/col7.jpg"
+            },
+            {
+                id: 21,
+                name: "Bakul Floral Incense",
+                category: "incense",
+                price: 189,
+                sub: "Fresh Flower Aroma",
+                img: "collection/col8.jpg"
             }
         ];
-
         let cart = [];
 
         // Load Products
@@ -328,7 +467,7 @@
             grid.innerHTML = items.map(product => `
                 <div class="product-card group relative bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 animate-slide-up">
                     <div class="h-72 overflow-hidden relative">
-                        <img src="${product.img}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img loading="lazy" src="${product.img}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="product-action absolute inset-0 bg-maroon/20 flex items-center justify-center opacity-0 transform translate-y-4 transition-all duration-300">
                             <button onclick="addToCart(${product.id})" class="bg-white text-maroon p-4 rounded-full shadow-xl hover:bg-saffron hover:text-white transition-colors">
                                 <i data-lucide="plus"></i>
@@ -375,6 +514,18 @@
         function toggleCart() {
             const sidebar = document.getElementById('cart-sidebar');
             sidebar.classList.toggle('translate-x-full');
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            // Toggle translation classes for show/hide
+            menu.classList.toggle('-translate-x-full');
+            menu.classList.toggle('translate-x-0');
+            // Ensure icons render when opened
+            if (!menu.classList.contains('-translate-x-full')) {
+                lucide.createIcons();
+            }
         }
 
         function addToCart(id) {
@@ -425,6 +576,33 @@
         function removeFromCart(index) {
             cart.splice(index, 1);
             updateCart();
+        }
+
+        // Search handlers
+        function toggleSearch() {
+            const input = document.getElementById('nav-search');
+            input.classList.toggle('hidden');
+            if (!input.classList.contains('hidden')) {
+                input.focus();
+                input.value = '';
+                displayProducts(products);
+            }
+        }
+
+        function handleSearchInput(e) {
+            const q = e.target.value.trim().toLowerCase();
+            if (!q) { displayProducts(products); return; }
+            const filtered = products.filter(p => (p.name + ' ' + p.sub + ' ' + p.category).toLowerCase().includes(q));
+            displayProducts(filtered);
+        }
+
+        function searchKeyDown(e) {
+            if (e.key === 'Escape') {
+                const input = document.getElementById('nav-search');
+                input.classList.add('hidden');
+                input.value = '';
+                displayProducts(products);
+            }
         }
 
         // Initialize
