@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manohar - Bharat Ki Sanskriti Ka Naam</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            crimson:  '#C0272D',
+            deepred:  '#8B0000',
+            gold:     '#C9A84C',
+            darkgold: '#8B6914',
+            cream:    '#F5E6C8',
+          },
+          fontFamily: {
+            hindi:  ['Tiro Devanagari Hindi', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+            poppins:['Poppins', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Cinzel:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- ONLY keyframes + animation classes — no layout/color/spacing here -->
+  <style>
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeIn   { from{opacity:0} to{opacity:1} }
+    @keyframes productIn{ from{opacity:0;transform:translateY(40px) scale(.88)} to{opacity:1;transform:translateY(0) scale(1)} }
+    @keyframes sealPop  { from{opacity:0;transform:rotate(-180deg) scale(0)} to{opacity:1;transform:rotate(0) scale(1)} }
+    @keyframes sealSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    @keyframes conchFloat{0%,100%{transform:rotate(20deg) translateY(0)} 50%{transform:rotate(20deg) translateY(-10px)}}
+    @keyframes stripMove{ from{background-position:0 0} to{background-position:42px 0} }
+
+    .a-strip   { background:repeating-linear-gradient(90deg,#C0272D 0,#C0272D 18px,#C9A84C 18px,#C9A84C 24px,#C0272D 24px,#C0272D 36px,#7a0000 36px,#7a0000 42px); background-size:42px 100%; animation:stripMove 1.4s linear infinite; }
+    .a-fu1     { animation:fadeUp .6s ease .30s both; }
+    .a-fu2     { animation:fadeUp .6s ease .50s both; }
+    .a-fu3     { animation:fadeUp .6s ease .65s both; }
+    .a-fu4     { animation:fadeUp .6s ease .75s both; }
+    .a-fu5     { animation:fadeUp .6s ease .85s both; }
+    .a-fu6     { animation:fadeUp .6s ease .95s both; }
+    .a-fu7     { animation:fadeUp .6s ease 1.05s both; }
+    .a-circle  { animation:fadeIn  .8s ease .2s  both; }
+    .a-yellow  { animation:fadeIn  1s  ease .4s  both; }
+    .a-product { animation:productIn .9s cubic-bezier(.34,1.56,.64,1) .7s both; }
+    .a-seal    { animation:sealPop .6s ease 1.2s both; }
+    .a-ring    { animation:sealSpin 12s linear infinite; }
+    .a-conch   { animation:conchFloat 3s ease-in-out infinite; }
+
+    /* watermark */
+    .watermark::before {
+      content:'मनोहर';
+      position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      font-family:'Tiro Devanagari Hindi',serif;
+      font-size:22vw; color:rgba(201,168,76,.045);
+      white-space:nowrap; pointer-events:none; z-index:0; user-select:none;
+    }
+
+    /* jar shine */
+    .jar-shine::before {
+      content:''; position:absolute;
+      top:8%; left:15%; width:25%; height:40%;
+      background:rgba(255,255,255,.28); border-radius:50%; filter:blur(4px);
+    }
+
+    .par-l,.par-r { transition:transform .3s ease; }
+  </style>
+</head>
+<body class="overflow-x-hidden bg-cream font-poppins">
+
+  <!-- ▓ Decorative top border ▓ -->
+  <div class="a-strip h-3 w-full"></div>
+
+  <!-- ════════════ NAVBAR ════════════ -->
+  <nav class="bg-cream border-b-2 border-gold relative z-20">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+
+      <!-- Logo box -->
+      <div class="w-20 h-20 bg-crimson border-4 border-gold rounded-md flex items-center justify-center shadow-[0_4px_15px_rgba(139,0,0,0.4)] flex-shrink-0">
+        <span class="font-hindi text-gold text-4xl font-bold leading-none select-none">म</span>
+      </div>
+
+      <!-- Nav links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#" class="font-poppins font-semibold text-[#3a1a00] text-[.95rem] relative group text-crimson">
+          Home
+          <span class="absolute -bottom-0.5 left-0 w-full h-0.5 bg-crimson"></span>
+        </a>
+        <a href="#" class="font-poppins font-semibold text-[#3a1a00] text-[.95rem] relative group hover:text-crimson transition-colors duration-200">
+          About Manohar
+          <span class="absolute -bottom-0.5 left-0 w-0 group-hover:w-full h-0.5 bg-crimson transition-all duration-300"></span>
+        </a>
+        <a href="#" class="font-poppins font-semibold text-[#3a1a00] text-[.95rem] relative group hover:text-crimson transition-colors duration-200">
+          Shop
+          <span class="absolute -bottom-0.5 left-0 w-0 group-hover:w-full h-0.5 bg-crimson transition-all duration-300"></span>
+        </a>
+        <a href="#" class="font-poppins font-semibold text-[#3a1a00] text-[.95rem] relative group hover:text-crimson transition-colors duration-200">
+          Contact Us
+          <span class="absolute -bottom-0.5 left-0 w-0 group-hover:w-full h-0.5 bg-crimson transition-all duration-300"></span>
+        </a>
+      </div>
+
+      <!-- Wholesale CTA -->
+      <button class="bg-deepred text-white font-poppins font-bold text-sm px-6 py-2.5 rounded-full shadow-[0_4px_15px_rgba(139,0,0,0.4)] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(139,0,0,0.5)] transition-all duration-200 whitespace-nowrap">
+        Wholesale Enquiry
+      </button>
+    </div>
+    <!-- Gold line -->
+    <div class="h-[3px] bg-gradient-to-r from-crimson via-gold to-crimson"></div>
+  </nav>
+
+  <!-- ════════════ HERO ════════════ -->
+  <section class="watermark relative bg-cream min-h-[calc(100vh-104px)] flex items-center overflow-hidden
+                  bg-[radial-gradient(ellipse_at_20%_50%,rgba(201,168,76,0.15)_0%,transparent_60%),radial-gradient(ellipse_at_80%_20%,rgba(255,107,0,0.12)_0%,transparent_50%)]">
+
+    <!-- Dot texture -->
+    <div class="absolute inset-0 z-0 opacity-[.04]"
+         style="background-image:radial-gradient(#C9A84C 1.5px,transparent 1.5px);background-size:32px 32px;"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-10 flex flex-col lg:flex-row items-center justify-between gap-10">
+
+      <!-- ── LEFT TEXT ── -->
+      <div class="par-l flex flex-col gap-1 max-w-xl">
+
+        <!-- Rang label -->
+        <div class="a-fu1 flex items-center gap-2 text-crimson font-poppins font-bold text-2xl tracking-widest">
+          <div class="w-3 h-3 bg-crimson rotate-45 flex-shrink-0"></div>
+          <span>Rang</span>
+        </div>
+
+        <!-- रंगों -->
+        <div class="a-fu2 font-hindi text-crimson font-bold leading-[.85] text-[clamp(5rem,10vw,9rem)] [text-shadow:3px_3px_0_rgba(139,0,0,0.2)]">
+          रंगों
+        </div>
+
+        <!-- subtitle hindi -->
+        <div class="a-fu3 font-hindi text-darkgold font-bold leading-snug text-[clamp(1.4rem,2.5vw,2.2rem)] -mt-1">
+          भारत की<br>संस्कृती का
+        </div>
+
+        <!-- subtitle english -->
+        <div class="a-fu4 font-poppins font-semibold text-darkgold tracking-wide text-[clamp(.85rem,1.5vw,1.15rem)]">
+          Bharat Ki Sanskriti ka
+        </div>
+
+        <div class="my-2"></div>
+
+        <!-- नाम -->
+        <div class="a-fu5 font-hindi text-crimson font-bold leading-[.85] text-[clamp(5rem,10vw,9rem)] [text-shadow:3px_3px_0_rgba(139,0,0,0.2)]">
+          नाम
+        </div>
+
+        <!-- tagline hindi -->
+        <div class="a-fu6 font-hindi text-darkgold font-bold leading-snug text-[clamp(1.4rem,2.5vw,2.2rem)] -mt-1">
+          भारत के हर<br>त्योहार का!
+        </div>
+
+        <!-- tagline english -->
+        <div class="a-fu7 font-cinzel font-bold text-crimson tracking-wide text-[clamp(.85rem,1.5vw,1.05rem)]">
+          Naam Bharat Ke Har Tyohar Ka!
+        </div>
+      </div>
+
+      <!-- ── RIGHT PRODUCT SCENE ── -->
+      <div class="par-r relative flex-shrink-0 flex items-center justify-center w-full lg:w-auto min-h-[500px]">
+
+        <!-- Yellow glow -->
+        <div class="a-yellow absolute w-[clamp(200px,28vw,380px)] h-[clamp(150px,20vw,280px)]
+                    top-[5%] right-[30%] rounded-full blur-2xl z-[1]
+                    bg-[radial-gradient(ellipse,rgba(255,195,0,0.55)_0%,transparent_70%)]"></div>
+
+        <!-- Red splash circle -->
+        <div class="a-circle absolute rounded-full overflow-hidden z-[2]
+                    w-[clamp(360px,48vw,660px)] h-[clamp(360px,48vw,660px)]
+                    right-[-8%] top-1/2 -translate-y-1/2
+                    shadow-[-20px_10px_80px_rgba(139,0,0,0.5)]
+                    [background:radial-gradient(circle_at_40%_40%,#d42b2b,#8B0000_70%,#5a0000)]">
+          <div class="absolute inset-0 [background:radial-gradient(ellipse_at_30%_30%,rgba(255,255,255,0.12)_0%,transparent_60%)]"></div>
+        </div>
+
+        <!-- Seal badge -->
+        <div class="a-seal absolute top-[8%] right-[-2%] z-[15]
+                    w-[clamp(70px,9vw,120px)] h-[clamp(70px,9vw,120px)]">
+          <div class="relative w-full h-full rounded-full overflow-hidden
+                      bg-gradient-to-br from-[#fff9e8] to-[#fdf0c2]
+                      border-[3px] border-gold
+                      flex flex-col items-center justify-center
+                      shadow-[0_4px_20px_rgba(0,0,0,0.3),inset_0_0_0_3px_rgba(201,168,76,0.3)]">
+            <!-- Rotating dashed border -->
+            <div class="a-ring absolute inset-[4px] rounded-full border border-dashed border-gold opacity-70"></div>
+            <span class="text-[clamp(1rem,1.8vw,1.8rem)] z-10 relative">🏠</span>
+            <p class="font-hindi text-crimson font-bold text-center z-10 relative leading-tight text-[clamp(.4rem,.7vw,.6rem)]">
+              हर दिन<br>मनोहर<br>हर घर मनोहर
+            </p>
+          </div>
+        </div>
+
+        <!-- Products on shelf -->
+        <div class="a-product relative z-10 pb-[clamp(16px,2.5vw,30px)]">
+
+          <div class="flex items-end gap-4">
+
+            <!-- YELLOW JAR -->
+            <div class="flex flex-col w-[clamp(90px,12vw,155px)] group cursor-pointer">
+              <!-- Cap -->
+              <div class="w-[90%] mx-auto h-4 rounded-t-lg bg-gradient-to-b from-[#CC0000] to-[#990000] shadow-[0_-3px_8px_rgba(0,0,0,0.25)]"></div>
+              <!-- Body -->
+              <div class="jar-shine relative w-full h-[clamp(90px,12vw,150px)]
+                          rounded-[40%_40%_35%_35%/35%_35%_50%_50%]
+                          bg-gradient-to-br from-[#FFD700] via-[#FFC200] to-[#c98b00]
+                          shadow-[inset_-8px_-5px_20px_rgba(0,0,0,0.2),inset_5px_5px_15px_rgba(255,255,255,0.3),0_8px_25px_rgba(0,0,0,0.3)]
+                          flex items-center justify-center overflow-hidden
+                          group-hover:-translate-y-2 group-hover:-rotate-2 transition-transform duration-300">
+                <div class="bg-crimson w-[80%] py-2 px-1 rounded text-center relative z-10">
+                  <p class="font-hindi text-white font-bold leading-tight text-[clamp(.45rem,.85vw,.75rem)]">
+                    मनोहर<br>केसर अष्ट
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ORANGE BOX -->
+            <div class="w-[clamp(80px,11vw,140px)] h-[clamp(120px,15vw,200px)] group cursor-pointer">
+              <div class="relative w-full h-full rounded-md overflow-hidden
+                          bg-gradient-to-br from-[#FFA500] via-[#FF8C00] to-[#c96000]
+                          shadow-[inset_-6px_-4px_15px_rgba(0,0,0,0.2),inset_4px_4px_12px_rgba(255,255,255,0.25),0_8px_25px_rgba(0,0,0,0.3)]
+                          flex flex-col items-center justify-center gap-1.5
+                          group-hover:-translate-y-3 group-hover:rotate-2 transition-transform duration-300">
+                <!-- Shine -->
+                <div class="absolute top-[5%] left-[10%] w-[20%] h-[35%] bg-white/20 rounded-full blur-md"></div>
+                <!-- Text -->
+                <p class="font-cinzel font-black text-crimson text-center leading-tight relative z-10 text-[clamp(.6rem,1vw,.95rem)] [text-shadow:0_1px_2px_rgba(0,0,0,0.1)]">
+                  Manohar<br>Chandan<br><span class="text-[.75em]">(Tika)</span>
+                </p>
+                <div class="w-[70%] h-[1.5px] bg-crimson opacity-50"></div>
+                <p class="font-hindi text-[#3a1a00] font-semibold relative z-10 text-[clamp(.45rem,.7vw,.6rem)]">मनोहर</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Wooden shelf -->
+          <div class="relative w-[clamp(220px,28vw,380px)] h-[clamp(18px,2.5vw,32px)]
+                      mx-auto mt-1 rounded-[50%]
+                      bg-gradient-to-b from-[#c8864d] via-[#a0622a] to-[#7a4820]
+                      shadow-[0_8px_25px_rgba(0,0,0,0.35)]">
+            <div class="absolute top-[3px] left-[10%] w-[80%] h-[6px] bg-white/10 rounded-full"></div>
+          </div>
+
+          <!-- Conch shell -->
+          <div class="a-conch absolute bottom-[28%] -right-3 z-[5] text-[clamp(2rem,3.5vw,4rem)] drop-shadow-[2px_4px_6px_rgba(0,0,0,0.3)]">
+            🐚
+          </div>
+
+        </div><!-- /a-product -->
+      </div><!-- /par-r -->
+    </div>
+  </section>
+
+  <!-- ════════════ WhatsApp FAB ════════════ -->
+  <a href="https://wa.me/" target="_blank"
+     class="fixed bottom-7 right-7 w-14 h-14 bg-[#25D366] rounded-full z-50
+            flex items-center justify-center cursor-pointer
+            shadow-[0_6px_20px_rgba(37,211,102,0.45)]
+            hover:scale-110 hover:shadow-[0_8px_25px_rgba(37,211,102,0.6)]
+            transition-all duration-200">
+    <svg viewBox="0 0 24 24" class="w-8 h-8 fill-white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Mouse parallax JS only -->
+  <script>
+    const section = document.querySelector('section');
+    const L = document.querySelector('.par-l');
+    const R = document.querySelector('.par-r');
+    section.addEventListener('mousemove', e => {
+      const { width, height, left, top } = section.getBoundingClientRect();
+      const dx = (e.clientX - left - width  / 2) / (width  / 2);
+      const dy = (e.clientY - top  - height / 2) / (height / 2);
+      L.style.transform = `translate(${dx*6}px,${dy*4}px)`;
+      R.style.transform = `translate(${dx*-8}px,${dy*-6}px)`;
+    });
+    section.addEventListener('mouseleave', () => {
+      L.style.transform = R.style.transform = 'translate(0,0)';
+    });
+  </script>
+</body>
+</html>

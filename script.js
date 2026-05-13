@@ -1,6 +1,44 @@
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
+
+  const tl = gsap.timeline();
+
+  // Left text animation
+  tl.from("#heroText h1", {
+    y: 80,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out"
+  })
+
+  .from("#heroText h2", {
+    y: 80,
+    opacity: 0,
+    duration: 1
+  }, "-=0.6")
+
+  .from("#heroText p", {
+    y: 50,
+    opacity: 0,
+    duration: 0.8
+  }, "-=0.6")
+
+  // Right image animation
+  .from("#heroImage div", {
+    scale: 0,
+    opacity: 0,
+    duration: 1,
+    ease: "back.out(1.7)"
+  }, "-=0.3")
+
+  .from("#heroImage img", {
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out"
+  }, "-=0.6");
+
 // Preloader Logic
 window.addEventListener("load", () => {
   const tl = gsap.timeline();
@@ -70,7 +108,7 @@ ScrollTrigger.create({
       gsap.to("#navbar", {
         top: 0,
         height: "80px",
-        backgroundColor: "rgba(255, 248, 231, 0.95)",
+        // backgroundColor: "rgba(255, 248, 231, 0.95)",
         duration: 0.3,
       });
     } else {
@@ -80,7 +118,7 @@ ScrollTrigger.create({
         gsap.to("#navbar", {
           top: "32px",
           height: "96px",
-          backgroundColor: "rgba(255, 248, 231, 0.85)",
+          // backgroundColor: "rgba(255, 248, 231, 0.85)",
           duration: 0.3,
         });
       }
